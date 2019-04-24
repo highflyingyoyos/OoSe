@@ -19,7 +19,7 @@ public class Main {
         } else {
             System.out.println("b ist wahr."); // Ausgabe f) weil b = false den boolschen wert false hat, wird der else teil ausgeführt
         }
-        // b ?System.out.println("b ist wahr") : System.out.println("b ist falsch");
+        // b ? System.out.println("b ist wahr") : System.out.println("b ist falsch");
         if(b) System.out.println("b ist wahr"); else System.out.println("b ist falsch");
     }
 }
