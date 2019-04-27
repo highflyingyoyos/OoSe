@@ -52,7 +52,7 @@ public class Uebungsblatt_02 {
 	}
 
 	public long fac(long pN) {
-		if(pN <= 1) return pN;
+		if(pN <= 1) return 1;
 		return pN * fac(pN - 1);
 	}
 	
