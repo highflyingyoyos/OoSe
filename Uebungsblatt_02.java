@@ -68,6 +68,17 @@ public class Uebungsblatt_02 {
 		
 	}
 	
+	/**
+	 * Nicht jede Zahl ist binär als Gleitkommazahl exakt darstellbar (zB 6,4)
+	 * da der Datentyp double aber mehr Bits umfasst, als float, kann er sich der exakten 
+	 * Zahl mehr annähern und diese somit genauer darstellen.
+	 * 
+	 * Deshalb ist ein Vergleich dieser beiden Datentypen nur möglich, wenn entsprechend 
+	 * einer gewissen Toleranz gerundet wird.
+	 * 
+	 * Da diese Rundung in der Klasse java.math.BigDecimal bereits implementiert ist,
+	 * kann man diese wie folgt für einen Vergleich nutzen.
+	 */
 	public boolean cmpFD(float pF, double pD) {
 		BigDecimal f = new BigDecimal("" + pF);
 		BigDecimal d = new BigDecimal("" + pD);
