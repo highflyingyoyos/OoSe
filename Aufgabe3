@@ -1,0 +1,47 @@
+package com.company;
+
+public interface Playable {
+    void song();
+}
+
+package com.company;
+
+public class Stereoanlage{
+    public void play(Playable p){
+        p.song();
+    }
+}
+
+package com.company;
+
+public class CD implements Playable {
+    @Override
+    public void song() {
+        System.out.println("O Tannenbaum...");
+    }
+}
+
+package com.company;
+
+public class Kassette implements Playable{
+    public void song() {
+        System.out.println("Alle meine Entchen...");
+    }
+}
+
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Stereoanlage s=new Stereoanlage();
+        Playable pl=new CD();
+        s.play(pl);
+        pl=new Kassette();
+        s.play(pl);
+        //Es enstehen unterschiedliche Ausgabe, weil in der dritten Zeil die methode play auf die
+        //implementation von CD aufgerufen wird, in der letzten Zeile auf die implementation Kassette,
+        //die beide unterschiedlich sind
+    }
+}
