@@ -1,0 +1,39 @@
+package com.company;
+
+public class Singleton {
+    private static Singleton single;
+    private Singleton(){
+
+    }
+    public static Singleton getInstance(){
+        if(Singleton.single == null){
+            Singleton.single = new Singleton();
+        }
+        return Singleton.single;
+    }
+}
+
+//Wenn man garantieren will, dass nur eine instanz einer Klasse existiert, wenn z.B. Singleton von mehreren versch.
+//objekten / Klassen genutzt wird, und eine Änderung der Information in Singleton geschieht, so liegt diese Änderung
+//auch in allen anderen Nutzungsfällen vor
+package com.company;
+
+public class Singleton2 {
+
+    private static Singleton2 single2 = new Singleton2();
+
+    private Singleton2(){
+    }
+    public static Singleton2 getSingle2(){
+        return Singleton2.single2;
+    }
+}
+
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+    }
+}
