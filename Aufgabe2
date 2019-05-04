@@ -1,0 +1,101 @@
+package com.company;
+
+public class Sheep {
+    public String name;
+    public Fur fur;
+    public Sheep(String name, Fur fur) {
+        this.name = name;
+        this.fur = fur;
+    }
+    public void shear() {
+        fur.length = 0;
+    }
+    public String toString() {
+        return "Name: " + name + " " + fur.toString();
+    }
+    public Sheep clone() {
+        return this;
+    }
+    public Sheep shallowclone(){
+        Sheep shallow_sheep = new Sheep(name, fur);
+        return shallow_sheep;
+    }
+    public Sheep deepclone(){
+        Sheep deep_sheep = new Sheep(name, fur.deepclone());
+        return deep_sheep;
+    }
+    public boolean equals(Sheep toCompare){
+        //durch Parameter Typ instanceof-Abfrage redundant
+        //in Aufgabenstellung steht zwei Objekte sind gleich, wenn instanzvariablen gleich sind
+        //mit instanzvariablen nur immutable variablen gemeint oder auch immutable, wie objekte?
+        if(name.equals(toCompare.name) && fur.length == toCompare.fur.length){
+            return true;
+        }
+        return false;
+    }
+}
+
+package com.company;
+
+public class Fur {
+    public int length;
+    public Fur(int length) {
+        this.length = length;
+    }
+    public String toString() {
+        return "Felllaenge: " + length;
+    }
+    public Fur deepclone(){
+        Fur deepFur = new Fur(length);
+        return deepFur;
+    }
+}
+
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Sheep first_sheep = new Sheep("first_Sheep", new Fur(10));
+        Sheep second_sheep = first_sheep.clone();
+        System.out.println(first_sheep.toString());
+        System.out.println(second_sheep.toString());
+        second_sheep.name = "other_sheep";
+        second_sheep.shear();
+        System.out.println(first_sheep.toString());
+        System.out.println(second_sheep.toString());
+        //"Klon" ist hier kein richtiger Klon, bloß variable mit anderem namen, die die gleiche speicherstelle referenziert
+
+        Sheep originalSheep = new Sheep("original_Sheep", new Fur(10));
+        Sheep clonedSheep = originalSheep.shallowclone();
+        System.out.println(originalSheep.toString());
+        System.out.println(clonedSheep.toString());
+        clonedSheep.name = "Dolly";
+        clonedSheep.shear();
+        System.out.println(originalSheep.toString());
+        System.out.println(clonedSheep.toString());
+
+        Sheep firstTwin = new Sheep("Peter", new Fur(10));
+        Sheep secondTwin = firstTwin.deepclone();
+        System.out.println(firstTwin.toString());
+        System.out.println(secondTwin.toString());
+        secondTwin.name = "Lukas";
+        secondTwin.shear();
+        System.out.println(firstTwin.toString());
+        System.out.println(secondTwin.toString());
+    }
+    /*public interface Cloneable
+A class implements the Cloneable interface to indicate to the Object.clone() method that it is legal for that method
+to make a field-for-field copy of instances of that class.
+
+Invoking Object's clone method on an instance that does not implement the Cloneable interface results in the exception
+CloneNotSupportedException being thrown.
+
+By convention, classes that implement this interface should override Object.clone (which is protected) with a
+public method. See Object.clone() for details on overriding this method.
+
+Note that this interface does not contain the clone method. Therefore, it is not possible to clone an object merely by
+virtue of the fact that it implements this interface. Even if the clone method is invoked reflectively, there is no
+guarantee that it will succeed.*/
+}
