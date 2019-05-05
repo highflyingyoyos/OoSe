@@ -19,17 +19,18 @@ public class Main {
         C1 a = new C2();
         C2 b = new C2();
 
-        ((C2) a).f1(); //C2::f1 a wird wieder zurück auf C2 erweitert,
-        ((C1) b).f1(); //C2::f1
-        System.out.println(a.s); //in der ersten Zeile wird ein C2 Objekt auf C1 typ beschränkt, deshalb überschrieben
+        ((C2) a).f1(); //"C2::f1" a wird wieder auf C2 "zurückgecasted", kein Laufzeitfehler, da ursprünglich Instanz von C2
+        ((C1) b).f1(); //"C2::f1" Ein Typecast macht das Überschreiben einer Methode nicht rückgängig, sondern ändert nur das "Label" eines Objekts für den Compiler. Hier überflüssig da ein Objekt von C2 immer auch ein Objekt von C1 ist.
+        System.out.println(a.s); //"1" da a vom Typ C1
+	
         //b ist Objekt der Klasse C2, die von C1 erbt:
-        b.f1(); //"C2::f1" f2 von C1 wird in C2 überschrieben
+        b.f1(); //"C2::f1" f1 von C1 wird in C2 überschrieben
         b.f2(); //"C1::f2" da C2 f2 von C1 nicht überschreibt, wird die methode von C1 aufgerufen
         b.f3(); //"C2::f3" nur C2 hat f3 definiert, deshalb aufruf
 
         C1 c = new C1();
         //c.f3(); Kompilierfehler, denn c ist Objekt der Klasse C1, diese hat aber keine methode f3
-        //((C2)c).f1(); //laufzeitfehler,
+        //((C2)c).f1(); //laufzeitfehler, da C1 Vaterklasse von C2
     }
 }
 
