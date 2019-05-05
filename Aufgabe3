@@ -40,8 +40,10 @@ public class Main {
         s.play(pl);
         pl=new Kassette();
         s.play(pl);
-        //Es enstehen unterschiedliche Ausgabe, weil in der dritten Zeil die methode play auf die
-        //implementation von CD aufgerufen wird, in der letzten Zeile auf die implementation Kassette,
-        //die beide unterschiedlich sind
+	
+       /* Es enstehen unterschiedliche Ausgabe, weil in der dritten Zeil die methode play auf die
+        * implementation von CD aufgerufen wird, in der letzten Zeile auf die implementation Kassette,
+        * die beide unterschiedlich sind
+        */     
     }
 }
