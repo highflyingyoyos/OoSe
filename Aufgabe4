@@ -13,9 +13,11 @@ public class Singleton {
     }
 }
 
-//Wenn man garantieren will, dass nur eine instanz einer Klasse existiert, wenn z.B. Singleton von mehreren versch.
-//objekten / Klassen genutzt wird, und eine Änderung der Information in Singleton geschieht, so liegt diese Änderung
-//auch in allen anderen Nutzungsfällen vor
+/* Wenn man garantieren will, dass nur eine instanz einer Klasse existiert, wenn z.B. Singleton von mehreren versch.
+ * Objekten / Klassen genutzt wird, und eine Änderung der Information in Singleton geschieht, so liegt diese Änderung
+ * auch in allen anderen Nutzungsfällen vor
+ */
+
 package com.company;
 
 public class Singleton2 {
