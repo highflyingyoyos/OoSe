@@ -25,10 +25,11 @@ public class Sheep {
         return deep_sheep;
     }
     public boolean equals(Sheep toCompare){
-        //durch Parameter Typ instanceof-Abfrage redundant
-        //in Aufgabenstellung steht zwei Objekte sind gleich, wenn instanzvariablen gleich sind
-        //mit instanzvariablen nur immutable variablen gemeint oder auch immutable, wie objekte?
-        if(name.equals(toCompare.name) && fur.length == toCompare.fur.length){
+        /* durch Parameter Typ instanceof-Abfrage redundant
+         * in Aufgabenstellung steht zwei Objekte sind gleich, wenn instanzvariablen gleich sind
+         * mit instanzvariablen nur immutable variablen gemeint oder auch immutable, wie objekte?
+         */
+	if(name.equals(toCompare.name) && fur.length == toCompare.fur.length){
             return true;
         }
         return false;
