@@ -24,8 +24,14 @@ public class Uebungsblatt04_main {
 		System.out.println(((Lastwagen) auto1).reifen); // 8,8,8 weil reifen von LKW
 		System.out.println(auto1.getReifen()); // 8, 4, kann getReifen nicht finden  (getReifen() in beiden), 4 (getReifen() nur in Auto), Compilerfehler, da getReifen() für Auto nicht definiert
 		System.out.println(((Lastwagen) auto1).getReifen()); // 8, 4 ,8 (getReifen() in beiden), 4 (getReifen() nur in Auto), 8 (getReifen() nur in LKW)
-	
-	
+		
+		//member variables have static binding, java does not allow polymorphic behavior with member variables
+		//member variable is resolved based on the declared type of the object reference only, finds it already during
+		//compile time
+		//auch bei methoden auruf wird vom compiler nur geprüft, ob der statische Typ / Klasse die Methode implementiert
+		//hat, eine mögliche neue implementation der methode in der Unterklasse wird erst während der Laufzeit aufgerufen
+		//cast zu Unterklasse ändert den statischen Typen
+
 	}
 	
 	public void aufgabe02() {
