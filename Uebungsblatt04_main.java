@@ -20,10 +20,10 @@ public class Uebungsblatt04_main {
 
 	public void aufgabe01() {
 		Auto auto1 = new Lastwagen();
-		System.out.println(auto1.reifen); // 4 weil reifen von Auto
-		System.out.println(((Lastwagen) auto1).reifen); // 8 weil reifen von LKW
-		System.out.println(auto1.getReifen()); // 8  (getReifen() in beiden), 4 (getReifen() nur in Auto), Compilerfehler, da getReifen() für Auto nicht definiert
-		System.out.println(((Lastwagen) auto1).getReifen()); // 8  (getReifen() in beiden), 4 (getReifen() nur in Auto), 8 (getReifen() nur in LKW)
+		System.out.println(auto1.reifen); // 4,4,4 weil reifen von Auto
+		System.out.println(((Lastwagen) auto1).reifen); // 8,8,8 weil reifen von LKW
+		System.out.println(auto1.getReifen()); // 8, 4, kann getReifen nicht finden  (getReifen() in beiden), 4 (getReifen() nur in Auto), Compilerfehler, da getReifen() für Auto nicht definiert
+		System.out.println(((Lastwagen) auto1).getReifen()); // 8, 4 ,8 (getReifen() in beiden), 4 (getReifen() nur in Auto), 8 (getReifen() nur in LKW)
 	
 	
 	}
