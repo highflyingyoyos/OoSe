@@ -3,31 +3,24 @@ package Uebungsblatt05;
 public class Kugel extends Koerper {
 
 	private String kind = "Kugel";
-	private double volume = 1.0;
+	private double radius;
 
-	public Kugel(int pX, int pY, int pZ) {
+	public Kugel(int pX, int pY, int pZ, double pRadius) {
 		super(pX, pY, pZ);
+		radius = pRadius;
 
 	}
 
-	public void calcVolume() {
-
+	public double calcVolume() {
+		return 4 / 3 * Math.PI * Math.pow(radius, 3);
 	}
 
 	public void scale(double pA) {
-		volume *= pA;
-	}
-
-	public double getVolume() {
-		return volume;
+		radius *= pA;
 	}
 
 	public String getKind() {
 		return kind;
 	}
 
-	public void print() {
-		System.out.println("Art: " + kind + ", Volume: " + volume + ", Position: (" + getP()[0] + ";" + getP()[1] + ";"
-				+ getP()[2] + ")");
-	}
 }

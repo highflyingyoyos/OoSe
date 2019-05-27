@@ -5,10 +5,9 @@ import java.util.ArrayList;
 public class Main {
 
 	public Main() {
-		//aufgabe1();
-		//aufgabe2();
-		//aufgabe3();
-		aufgabe4();
+		aufgabe1();
+		aufgabe2();
+		aufgabe3();
 	}
 
 	public static void main(String[] args) {
@@ -34,27 +33,19 @@ public class Main {
 	public void aufgabe2() {
 		System.out.println("----------------------- Aufgabe 2 -----------------------");
 
-		Kugel dorian = new Kugel(0, 0, 0);
-		int[] woIstBigD = dorian.getP();
+		Kugel bigD = new Kugel(0, 0, 0, 5000);
+		bigD.print(bigD.getKind(), bigD.calcVolume());
+		bigD.move(-1, 3, 69);
+		bigD.print(bigD.getKind(), bigD.calcVolume());
 
-		System.out.println("x: " + woIstBigD[0] + ", y: " + woIstBigD[1] + ", z: " + woIstBigD[2]);
-
-		dorian.move(-1, 3, 69);
-
-		woIstBigD = dorian.getP();
-
-		System.out.println("x: " + woIstBigD[0] + ", y: " + woIstBigD[1] + ", z: " + woIstBigD[2]);
-
-		dorian.print();
-
-		Quader jonasKopf = new Quader(-500, 1000, 3);
+		Quader jonasKopf = new Quader(-500, 1000, 3, 20, 30, 40);
 
 		ArrayList<Koerper> list = new ArrayList<Koerper>();
-		list.add(dorian);
+		list.add(bigD);
 		list.add(jonasKopf);
 
 		for (int i = 0; i < list.size(); i++) {
-			list.get(i).print();
+			list.get(i).print(list.get(i).getKind(), list.get(i).calcVolume());
 		}
 
 		System.out.println("---------------------------------------------------------");
@@ -68,13 +59,6 @@ public class Main {
 		arr = sortArr(arr);
 		printArr(arr);
 		System.out.println("---------------------------------------------------------");
-	}
-	
-	public void aufgabe4() {
-		//System.out.println("----------------------- Aufgabe 4 -----------------------");
-		TestTrace test = new TestTrace();
-		//System.out.println("---------------------------------------------------------");
-		
 	}
 
 	public double[] sortArr(double[] pArr) {

@@ -10,11 +10,11 @@ public abstract class Koerper {
 		p[2] = pZ;
 	}	
 	
-	abstract void calcVolume();
+	abstract double calcVolume();
 	abstract void scale(double pA);
 	abstract String getKind();
-	abstract double getVolume();
-	abstract void print();
+	
+	
 	
 	
 	public void move(int pX, int pY, int pZ) {
@@ -28,6 +28,10 @@ public abstract class Koerper {
 		return p;
 	}
 	
+	public void print(String pKind, double pVolume) {
+		System.out.println("Art: " + pKind + ", Volume: " + pVolume + ", Position: (" + p[0] + ";" + p[1] + ";"
+				+ p[2] + ")");
+	}
 	
 	
 	

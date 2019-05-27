@@ -3,31 +3,30 @@ package Uebungsblatt05;
 public class Quader extends Koerper {
 
 	private String kind = "Quader";
-	private double volume = 1.0;
+	private double length;
+	private double width;
+	private double height;
 
-	public Quader(int pX, int pY, int pZ) {
+	public Quader(int pX, int pY, int pZ, double pLength, double pWidth, double pHeight) {
 		super(pX, pY, pZ);
+		length = pLength;
+		width = pWidth;
+		height = pHeight;
 
 	}
 
-	public void calcVolume() {
-
+	public double calcVolume() {
+		return length * width * height;
 	}
 
 	public void scale(double pA) {
-		volume *= pA;
-	}
-
-	public double getVolume() {
-		return volume;
+		length *= pA;
+		width *= pA;
+		height *= pA;
 	}
 
 	public String getKind() {
 		return kind;
 	}
 
-	public void print() {
-		System.out.println("Art: " + kind + ", Volume: " + volume + ", Position: (" + getP()[0] + ";" + getP()[1] + ";"
-				+ getP()[2] + ")");
-	}
 }
